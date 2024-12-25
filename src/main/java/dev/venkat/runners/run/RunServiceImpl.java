@@ -15,22 +15,22 @@ public class RunServiceImpl implements RunService {
     }
 
     @Override
-    public Run create(Run run) {
+    public RunDTO create(RunDTO run) {
         return runMapper.map(runRepository.save(runMapper.map(run)));
     }
 
     @Override
-    public Run findById(Integer id) {
+    public RunDTO findById(Integer id) {
         return runRepository.findById(id).map(runMapper::map).orElse(null);
     }
     
     @Override
-    public List<Run> findAll() {
+    public List<RunDTO> findAll() {
         return runRepository.findAll().stream().map(runMapper::map).toList();
     }
 
     @Override
-    public Run update(Integer id, Run run) {
+    public RunDTO update(Integer id, RunDTO run) {
         RunDO existingRunDO = runRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Run not found"));
         if (run.title() != null) existingRunDO.setTitle(run.title());
         if (run.startedOn() != null) existingRunDO.setStartedOn(run.startedOn());

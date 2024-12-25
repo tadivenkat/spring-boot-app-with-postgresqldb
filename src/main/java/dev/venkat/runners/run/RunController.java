@@ -23,22 +23,22 @@ public class RunController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Run>> findAll() {
+    public ResponseEntity<List<RunDTO>> findAll() {
         return ResponseEntity.ok(runService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Run> findById(Integer id) {
+    public ResponseEntity<RunDTO> findById(Integer id) {
         return ResponseEntity.ok(runService.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Run> create(@RequestBody Run run) {
+    public ResponseEntity<RunDTO> create(@RequestBody RunDTO run) {
         return ResponseEntity.ok(runService.create(run));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Run> update(@PathVariable Integer id, @RequestBody Run run) {
+    public ResponseEntity<RunDTO> update(@PathVariable Integer id, @RequestBody RunDTO run) {
         return ResponseEntity.ok(runService.update(id, run));
     }
 

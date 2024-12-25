@@ -7,12 +7,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Entity(name = "runs")
+@Entity
+@Table(name = "runs")
 public class RunDO {
     
     @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String title;
@@ -26,6 +28,8 @@ public class RunDO {
     private Integer miles;
 
     private String location;
+
+    private Integer version;
 
     public RunDO() {}
 
@@ -77,4 +81,10 @@ public class RunDO {
         this.location = location;
     }
 
+    public Integer getVersion() {
+        return version;
+    }
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 }

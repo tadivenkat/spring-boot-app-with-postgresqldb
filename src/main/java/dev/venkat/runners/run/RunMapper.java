@@ -4,12 +4,19 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RunMapper {
-    public Run map(RunDO runDO) {
-        Run run = new Run(runDO.getId(), runDO.getTitle(), runDO.getStartedOn(), runDO.getCompletedOn(), runDO.getMiles(), Location.valueOf(runDO.getLocation()));
+    public RunDTO map(RunDO runDO) {
+        RunDTO run = new RunDTO(
+                            runDO.getId(), 
+                            runDO.getTitle(), 
+                            runDO.getStartedOn(), 
+                            runDO.getCompletedOn(), 
+                            runDO.getMiles(), 
+                            Location.valueOf(runDO.getLocation()), 
+                            runDO.getVersion());
         return run;
     }
 
-    public RunDO map(Run run) {
+    public RunDO map(RunDTO run) {
         RunDO runDO = new RunDO();
         runDO.setId(run.id());
         runDO.setTitle(run.title());
@@ -17,6 +24,7 @@ public class RunMapper {
         runDO.setCompletedOn(run.completedOn());
         runDO.setMiles(run.miles());
         runDO.setLocation(run.location().name());
+        runDO.setVersion(run.version());
         return runDO;
     }
 }
