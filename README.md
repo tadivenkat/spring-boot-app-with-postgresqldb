@@ -1,5 +1,5 @@
 ```
-$ git clone https://github.com/tadivenkat/spring-boot-app-with-postgresqldb.git
+Clone the repository
 $ cd to project root directory
 $ mvn clean install
 $ cd target
